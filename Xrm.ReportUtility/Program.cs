@@ -53,7 +53,8 @@ namespace Xrm.ReportUtility
             if (report.Config.WithData && report.Data != null && report.Data.Any())
             {
                 var printReportBuilder = new PrintTemplateBuilder();
-                var printReportDirector = new PrintReportDirector(printReportBuilder, report.Config);
+                var printReportDirector = new PrintReportDirector();
+                printReportDirector.Construct(printReportBuilder, report.Config);
                 var template = printReportBuilder.GetResult();
                 var headerRow = template.Header;
                 var rowTemplate = template.Row;

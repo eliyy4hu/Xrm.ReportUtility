@@ -4,7 +4,11 @@ namespace Xrm.ReportUtility.PrintReport
 {
     public class PrintReportDirector
     {
-        public PrintReportDirector(PrintTemplateBuilder builder, ReportConfig config)
+        public PrintReportDirector()
+        {
+        }
+
+        public void Construct(PrintTemplateBuilder builder, ReportConfig config)
         {
             builder.SetName();
             if (!config.WithoutVolume)
