@@ -2,7 +2,6 @@
 using System.Linq;
 using Xrm.ReportUtility.Interfaces;
 using Xrm.ReportUtility.Models;
-using Xrm.ReportUtility.PrintTemplate;
 using Xrm.ReportUtility.Services;
 
 namespace Xrm.ReportUtility
@@ -52,10 +51,11 @@ namespace Xrm.ReportUtility
         {
             if (report.Config.WithData && report.Data != null && report.Data.Any())
             {
-                var templateCreator = TemplateTransformerCreator.CreateTemplateTransformer(report.Config);
-                var template = templateCreator.CreateTemplate(report.Config);
-                var headerRow = template.HeaderRow;
-                var rowTemplate = template.RowTemplate;
+                var printReportBuilder = new PrintTemplateBuilder();
+                var printReportDirector = new PrintReportDirector(printReportBuilder, report.Config);
+                var template = printReportBuilder.GetResult();
+                var headerRow = template.Header;
+                var rowTemplate = template.Row;
 
                 Console.WriteLine(headerRow);
 
