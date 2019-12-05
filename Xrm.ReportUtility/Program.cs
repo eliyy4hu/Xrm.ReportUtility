@@ -2,6 +2,7 @@
 using System.Linq;
 using Xrm.ReportUtility.Interfaces;
 using Xrm.ReportUtility.Models;
+using Xrm.ReportUtility.PrintReport;
 using Xrm.ReportUtility.Services;
 
 namespace Xrm.ReportUtility

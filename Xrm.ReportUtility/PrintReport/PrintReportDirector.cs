@@ -1,6 +1,6 @@
 ﻿using Xrm.ReportUtility.Models;
 
-namespace Xrm.ReportUtility
+namespace Xrm.ReportUtility.PrintReport
 {
     public class PrintReportDirector
     {

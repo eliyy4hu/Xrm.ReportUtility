@@ -57,9 +57,9 @@
     <Compile Include="Infrastructure\Transformers\CountSumReportTransformer.cs" />
     <Compile Include="Interfaces\IReportService.cs" />
     <Compile Include="Models\ReportRow.cs" />
-    <Compile Include="PrintReportDirector.cs" />
-    <Compile Include="PrintReportPart.cs" />
-    <Compile Include="PrintTemplateBuilder.cs" />
+    <Compile Include="PrintReport\PrintReportDirector.cs" />
+    <Compile Include="PrintReport\PrintReportTemplatePart.cs" />
+    <Compile Include="PrintReport\PrintTemplateBuilder.cs" />
     <Compile Include="Services\CsvReportService.cs" />
     <Compile Include="Interfaces\IDataTransformer.cs" />
     <Compile Include="Infrastructure\DataTransformerCreator.cs" />

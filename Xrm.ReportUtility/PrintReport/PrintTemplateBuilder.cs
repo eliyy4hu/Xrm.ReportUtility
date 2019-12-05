@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Xrm.ReportUtility
+namespace Xrm.ReportUtility.PrintReport
 {
     public class PrintTemplateBuilder
     {
-        private readonly PrintReportPart index = new PrintReportPart();
-        private readonly PrintReportPart name = new PrintReportPart();
-        private readonly PrintReportPart volume = new PrintReportPart();
-        private readonly PrintReportPart weight = new PrintReportPart();
-        private readonly PrintReportPart cost = new PrintReportPart();
-        private readonly PrintReportPart count = new PrintReportPart();
-        private readonly PrintReportPart totalVolume = new PrintReportPart();
-        private readonly PrintReportPart totalWeight = new PrintReportPart();
+        private readonly PrintReportTemplatePart index = new PrintReportTemplatePart();
+        private readonly PrintReportTemplatePart name = new PrintReportTemplatePart();
+        private readonly PrintReportTemplatePart volume = new PrintReportTemplatePart();
+        private readonly PrintReportTemplatePart weight = new PrintReportTemplatePart();
+        private readonly PrintReportTemplatePart cost = new PrintReportTemplatePart();
+        private readonly PrintReportTemplatePart count = new PrintReportTemplatePart();
+        private readonly PrintReportTemplatePart totalVolume = new PrintReportTemplatePart();
+        private readonly PrintReportTemplatePart totalWeight = new PrintReportTemplatePart();
 
         public void SetIndex()
         {
@@ -62,16 +62,13 @@ namespace Xrm.ReportUtility
             totalWeight.Row = "{7,13}";
         }
 
-        public PrintReportPart GetResult()
+        public PrintReportTemplatePart GetResult()
         {
-            var order = new List<PrintReportPart> {index, name, volume, weight, cost, count, totalVolume, totalWeight};
+            var order = new List<PrintReportTemplatePart> {index, name, volume, weight, cost, count, totalVolume, totalWeight};
             order = order.Where(x => x.Header != "").ToList();
             var headerTemplate = string.Join("\t", order.Select(x => x.Header));
             var rowTemplate = string.Join("\t", order.Select(x => x.Row));
-            return new PrintReportPart(){Header = headerTemplate, Row = rowTemplate};
+            return new PrintReportTemplatePart() {Header = headerTemplate, Row = rowTemplate};
         }
-        
-
-
     }
 }
